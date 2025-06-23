@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.mantis')
 
 @section('content')
 <div class="">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="">
+        <div class="">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 

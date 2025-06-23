@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.mantis')
  
 @section('content')
 <div class="container">
@@ -34,7 +34,7 @@
                                     <td>{{ $user->email }}</td>
                                     <td>
                                         <span class="badge bg-{{ $user->petugas() ? 'danger' : 'primary' }}">
-                                            {{ $user->role->display_name ?? 'No Role' }}
+                                            {{ $user->role->name ?? 'No Role' }}
                                         </span>
                                     </td>
                                     <td>{{ $user->created_at->format('d/m/Y') }}</td>

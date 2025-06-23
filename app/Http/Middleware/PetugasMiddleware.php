@@ -16,11 +16,17 @@ class PetugasMiddleware
      */
      public function handle(Request $request, Closure $next): Response
     {
-        $role_id = $request->user()->role_id;
-        $admin_role = Role::where('name', 'petugas')->first()->id;
-        if ($role_id != $admin_role) {
-            return abort(403, 'anda tidak bisa akses halaman ini');
-        }
-        return $next($request);
+         if (!$request->user()) {
+        return redirect()->route('login'); // atau abort(403) kalau memang harus forbidden
+    }
+
+    $role_id = $request->user()->role_id;
+    $admin_role = Role::where('name', 'petugas')->first()->id;
+
+    if ($role_id != $admin_role) {
+        return abort(403, 'Anda tidak bisa akses halaman ini');
+    }
+
+    return $next($request);
     }
 }
