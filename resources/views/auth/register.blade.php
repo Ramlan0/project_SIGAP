@@ -51,7 +51,7 @@
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-end mb-4">
               <h3 class="mb-0"><b>Sign up</b></h3>
-              <a href="{{ route('logingit') }}" class="link-primary">Already have an account?</a>
+              <a href="{{ route('login') }}" class="link-primary">Already have an account?</a>
             </div>
             <div class="row">
                <form action="{{ route('register') }}" method="post">
