@@ -1,6 +1,6 @@
 <?php
- 
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Petugas\UserController;
 use App\Http\Controllers\Petugas\PetugasController;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +19,7 @@ Route::get('/produk', [App\Http\Controllers\HomeController::class, 'produk'])->n
 Route::middleware(['petugas'])->group(function () {
     Route::get('/petugas', [PetugasController::class, 'index'])->name('petugas.dashboard');
     Route::resource('/users', UserController::class);
+    Route::resource('/kategori', CategoryController::class);
     // tambahkan route admin lainnya di sini
 });
  
