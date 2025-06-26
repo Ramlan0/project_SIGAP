@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -21,7 +20,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+         return view('petugas.kategori.create');
     }
 
     /**
@@ -29,8 +28,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+            'nama_kategori' => 'required|max:255',
+
+        ], [
+            'nama_kategori.required' => 'kategori wajib diisi.',
+            
+        ]);
+        Category::create($request->all());
+        // manggail field biar gaharus satu satu 
+        
+
+        return redirect()->route('kategori.index')->with('success', 'Kategori berhasil ditambahkan');
     }
+
 
     /**
      * Display the specified resource.
