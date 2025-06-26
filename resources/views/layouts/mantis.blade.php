@@ -66,6 +66,12 @@
             <span class="pc-mtext">User</span>
           </a>
         </li>
+        <li class="pc-item">
+          <a href="{{ route('kategori.index') }}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-user"></i></span>
+            <span class="pc-mtext">Kategori</span>
+          </a>
+        </li>
 
         <li class="pc-item pc-caption">
           <label>UI Components</label>
