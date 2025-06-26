@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -43,7 +44,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kategori = Category::FindorFail($id);
+        return view('petugas.kategori.edit', compact('kategori'));
     }
 
     /**
@@ -51,7 +53,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nama_kategori' => 'required|max:255,'
+        ],[
+            'nama_kategori.required'=>'Kategri wajib diisi.',
+        ]);
+        Category::create($request->all());
+        return redirect()->route('kategori.index')->with('success','Kategori berhasil di tambahkan');
     }
 
     /**
@@ -59,6 +67,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kategori = Category::findOrfail($id); 
+        $kategori->delete();
+        return redirect()->route('kategori.index')-> with('success','Kategori berhasil di hapus.');
     }
 }
