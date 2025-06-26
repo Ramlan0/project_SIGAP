@@ -11,7 +11,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $kategori = Category::All();
+       return view('petugas.kategori.index', compact('kategori'));
     }
 
     /**
