@@ -70,7 +70,8 @@ class CategoryController extends Controller
         ],[
             'nama_kategori.required'=>'Kategri wajib diisi.',
         ]);
-        Category::create($request->all());
+         $kategori = Category::FindorFail($id);
+        $kategori->update($request->all());
         return redirect()->route('kategori.index')->with('success','Kategori berhasil di tambahkan');
     }
 
