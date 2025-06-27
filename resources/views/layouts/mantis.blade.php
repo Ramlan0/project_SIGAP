@@ -60,6 +60,14 @@
             <span class="pc-mtext">Dashboard</span>
           </a>
         </li>
+
+        <li class="pc-item">
+          <a href="{{ route('laporan.index') }}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-user"></i></span>
+            <span class="pc-mtext">Laporan</span>
+          </a>
+        </li>
+
         <li class="pc-item">
           <a href="{{ route('users.index') }}" class="pc-link">
             <span class="pc-micon"><i class="ti ti-user"></i></span>

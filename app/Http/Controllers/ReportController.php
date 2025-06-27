@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -11,7 +12,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        $reports = Report::latest()->with('user', 'category')->get();
+        return view('petugas.laporan.index', compact('reports'));
     }
 
     /**
