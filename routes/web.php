@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Petugas\UserController;
 use App\Http\Controllers\Petugas\PetugasController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ResponseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
  
@@ -22,6 +23,12 @@ Route::middleware(['petugas'])->group(function () {
     Route::resource('/users', UserController::class);
     Route::resource('/kategori', CategoryController::class);
     Route::resource('/laporan', ReportController::class);
+
+    // respon
+    Route::get('/respon/create/{report}', [ResponseController::class, 'create'])->name('respon.create');
+    Route::post('/respon', [ResponseController::class, 'store'])->name('respon.store');
+    Route::get('/respon/{response}/edit', [ResponseController::class, 'edit'])->name('respon.edit');
+    Route::put('/respon/{response}', [ResponseController::class, 'update'])->name('respon.update');
     // tambahkan route admin lainnya di sini
 });
  

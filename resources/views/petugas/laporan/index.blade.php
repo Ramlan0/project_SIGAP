@@ -35,14 +35,14 @@
                         <span class="badge bg-warning text-dark">Pending</span>
                     @endif
                 </td>
-                {{-- <td>
+                <td>
                     @if($report->response)
-    <a href="{{ route('responses.edit', $report->response->id) }}" class="btn btn-sm btn-warning">Edit Tanggapan</a>
+    <a href="{{ route('respon.edit', $report->response->id) }}" class="btn btn-sm btn-warning">Edit Tanggapan</a>
 @else
-    <a href="{{ route('responses.create', $report->id) }}" class="btn btn-sm btn-info">Tanggapi</a>
+    <a href="{{ route('respon.create', $report->id) }}" class="btn btn-sm btn-info">Tanggapi</a>
 @endif
 
-                </td> --}}
+                </td>
             </tr>
         @endforeach
         </tbody>
