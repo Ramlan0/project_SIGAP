@@ -19,4 +19,8 @@ class Report extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function response()
+    {
+    return $this->hasOne(Response::class);
+    }
 }
