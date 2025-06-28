@@ -295,7 +295,7 @@
     <div class="container fade-in">
       <h3 class="mb-3">Bersama SIGAP, Fasilitas Umum Lebih Terjaga</h3>
       <p class="mb-4">Jangan diam. Laporkan sekarang agar kerusakan cepat ditangani oleh pihak terkait.</p>
-      <a href="/form-laporan" class="btn btn-soft">Formulir Laporan</a>
+      <a href="{{ route('lapor.create') }}" class="btn btn-soft">Formulir Laporan</a>
     </div>
   </section>
 

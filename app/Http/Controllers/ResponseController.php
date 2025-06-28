@@ -34,4 +34,5 @@ class ResponseController extends Controller
 
         return redirect()->route('petugas.dashboard')->with('success', 'Tanggapan berhasil disimpan dan status diperbarui.');
     }
+    
 }
