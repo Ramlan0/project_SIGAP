@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LaporController;
 use App\Http\Controllers\Petugas\UserController;
 use App\Http\Controllers\Petugas\PetugasController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\WargaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
  
@@ -34,5 +36,10 @@ Route::middleware(['petugas'])->group(function () {
  
 // User Routes
 Route::middleware(['auth'])->group(function () {
-    // tambahkan route user lainnya di sini
+    Route::get('/warga', [WargaController::class, 'index'])->name('warga.index');
+    Route::resource('/lapor', LaporController::class);
+    Route::get('/laporan-saya',[LaporController::class, 'userReports'])->name('lapor.saya');
+    
+        
+
 });

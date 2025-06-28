@@ -46,6 +46,6 @@ class LoginController extends Controller
         }
  
         // Default redirect untuk user biasa
-        return redirect()->intended('/home');
+        return redirect()->intended('/warga');
     }
 }
