@@ -7,7 +7,7 @@
             <h5>Edit Tanggapan untuk Laporan: {{ $report->judul }}</h5>
         </div>
         <div class="card-body">
-            <form action="{{ route('responses.update', $response->id) }}" method="POST">
+            <form action="{{ route('respon.update', $response->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -26,7 +26,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-success">Simpan Perubahan</button>
-                <a href="{{ route('reports.index') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ route('laporan.index') }}" class="btn btn-secondary">Kembali</a>
             </form>
         </div>
     </div>
