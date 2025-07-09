@@ -9,7 +9,8 @@ class Response extends Model
     protected $fillable = [
     'report_id',
     'user_id',
-    'tanggapan'
+    'tanggapan',
+    'tanggal_laporan'
 ];
         public function report()
     {

@@ -12,8 +12,17 @@ class PetugasController extends Controller
         $this->middleware('petugas');
     }
  
+    // public function index()
+    // {
+    //     return view('petugas.dashboard');
+    // }    
+
     public function index()
-    {
-        return view('petugas.dashboard');
-    }
+{
+    $totalUsers = \App\Models\User::count();
+    $pendingReports = \App\Models\Report::where('status', 'Pending')->count();
+    $respondedReports = \App\Models\Report::whereIn('status', ['Diproses', 'Selesai'])->count();
+
+    return view('petugas.dashboard', compact('totalUsers', 'pendingReports', 'respondedReports'));
+}
 }
