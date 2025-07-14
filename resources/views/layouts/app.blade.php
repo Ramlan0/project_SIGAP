@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    {{-- <link rel="{{ route('logo_SIGAP.png') }}" href="favicon.ico" type="image/x-icon"> --}}
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->

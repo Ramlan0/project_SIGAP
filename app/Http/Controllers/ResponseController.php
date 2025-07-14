@@ -33,6 +33,39 @@ class ResponseController extends Controller
         $report->update(['status' => $request->status]);
 
         return redirect()->route('petugas.dashboard')->with('success', 'Tanggapan berhasil disimpan dan status diperbarui.');
+    }   
+
+    public function edit($id)
+    {
+        $response = Response::findOrFail($id);
+        $report = $response->report; // relasi ke Report, pastikan ada relasi di model
+
+        return view('petugas.respon.edit', compact('response', 'report'));
     }
+        
     
+
+            public function update(Request $request, $id)
+    {
+        $request->validate([
+            'tanggapan' => 'required',
+            'status' => 'required|in:Pending,Diproses,Selesai',
+        ]);
+
+        // Ambil data tanggapan berdasarkan ID
+        $response = Response::findOrFail($id);
+
+        // Update tanggapan
+        $response->update([
+            'tanggapan' => $request->tanggapan,
+        ]);
+
+        // Update status laporan terkait
+        $report = $response->report; // menggunakan relasi
+        $report->update(['status' => $request->status]);
+
+        return redirect()->route('petugas.dashboard')->with('success', 'Tanggapan dan status berhasil diperbarui.');
+    }
+
 }
+
